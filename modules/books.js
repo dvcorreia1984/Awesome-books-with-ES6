@@ -1,4 +1,4 @@
-export class Books {
+export default class Books {
   createObject() {
     this.books = [
       {
@@ -68,14 +68,14 @@ export class Books {
   // Add event listeners to remove buttons
   addRemoveButtonListeners() {
     const removeButtons = document.getElementsByClassName('remove-btn');
-    for (let i = 0; i < removeButtons.length; i++) {
+    for (let i = 0; i < removeButtons.length; i += 1) {
       const button = removeButtons[i];
+      // eslint-disable-next-line prefer-destructuring
       const bookId = button.dataset.bookId;
       button.addEventListener('click', () => {
+        // eslint-disable-next-line radix
         this.removeBooks(parseInt(bookId));
       });
     }
   }
 }
-
-

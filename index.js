@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Remove button event listener
   document.addEventListener('click', (event) => {
     if (event.target.classList.contains('remove-btn')) {
+      // eslint-disable-next-line radix
       const bookId = parseInt(event.target.dataset.bookId);
       a.removeBooks(bookId);
     }
   });
 });
-

@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 export function setupNavigation() {
   const listNav = document.getElementById('lists-nav');
   const addNewNav = document.getElementById('add-new-nav');
