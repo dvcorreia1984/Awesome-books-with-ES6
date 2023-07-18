@@ -1,5 +1,6 @@
 import { Books } from './modules/books.js';
 import { setupNavigation } from './modules/navigation.js';
+import dt from './modules/datetime.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   setupNavigation();
@@ -7,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   a.createObject();
   a.displayBooks();
   a.saveToLocalStorage();
+
+  document.getElementById('date').innerHTML = dt;
 
   document.getElementById('addbtn').addEventListener('click', () => {
     a.addBooks();
