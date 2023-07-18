@@ -1,10 +1,5 @@
 // Create Books class to manage the book list
 
-import dt from './modules/datetime.js';
-
-console.log (dt);
-
-
 class Books {
   createObject() {
     this.books = [
@@ -82,18 +77,18 @@ class Books {
 
   // eslint-disable-next-line class-methods-use-this
   addDate() {
-    // const date = new Date();
-    // const options = {
-    //   year: 'numeric',
-    //   month: 'long',
-    //   day: 'numeric',
-    //   hour: 'numeric',
-    //   minute: 'numeric',
-    //   second: 'numeric',
-    //   hour12: true,
-    // };
-    // const dateId = date.toLocaleString('en-US', options);
-    document.getElementById('date').innerHTML = dt;
+    const date = new Date();
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true,
+    };
+    const dateId = date.toLocaleString('en-US', options);
+    document.getElementById('date').innerHTML = dateId;
   }
 
   // eslint-disable-next-line class-methods-use-this
