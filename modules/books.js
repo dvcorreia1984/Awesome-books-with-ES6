@@ -1,4 +1,5 @@
-export default class Books {
+/* eslint-disable import/prefer-default-export */
+export class Books {
   createObject() {
     this.books = [
       {
