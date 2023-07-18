@@ -1,5 +1,3 @@
-const webpack = require('webpack');
-
 import path from 'path';
 
 export default {

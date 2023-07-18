@@ -23,8 +23,6 @@ export class Books {
     let book = '';
     let displayType = 1;
     for (let i = 0; i < x.length; i += 1) {
-      document.getElementById('display').innerHTML = `
-      <div class="display" id="display"></div>`;
       book += `<div id='books-container${displayType}'>`;
       book += `<div id='book-author'><p id="booktext">"${x[i].title}" by ${x[i].author}</p></div>`;
       book += `<button class="remove-btn" data-book-id="${x[i].Id}">Remove</button></div>`;
@@ -35,6 +33,7 @@ export class Books {
       }
     }
     document.getElementById('display').innerHTML = book;
+    this.addRemoveButtonListeners();
   }
 
   // Add books
@@ -48,7 +47,6 @@ export class Books {
       this.displayBooks();
       document.querySelector('form').reset();
       this.saveToLocalStorage();
-    //   alert(bookId);
     }
   }
 
@@ -62,53 +60,22 @@ export class Books {
     }
   }
 
-  displayBooks() 
-  
   // Save to local storage
   saveToLocalStorage() {
     localStorage.setItem('books', JSON.stringify(this.books));
   }
 
-  // // Add local time to date id
-
-  // // eslint-disable-next-line class-methods-use-this
-  // addDate() {
-  //   const date = new Date();
-  //   const options = {
-  //     year: 'numeric',
-  //     month: 'long',
-  //     day: 'numeric',
-  //     hour: 'numeric',
-  //     minute: 'numeric',
-  //     second: 'numeric',
-  //     hour12: true,
-  //   };
-  //   const dateId = date.toLocaleString('en-US', options);
-  //   document.getElementById('date').innerHTML = dateId;
-  // }
-
-  // eslint-disable-next-line class-methods-use-this
-  lists() {
-    document.getElementById('add-new').style.display = 'none';
-    document.getElementById('contactus').style.display = 'none';
-    document.getElementById('lists').style.display = 'flex';
-    document.getElementById('container').style.display = 'flex';
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  addNewBook() {
-    document.getElementById('lists').style.display = 'none';
-    document.getElementById('contactus').style.display = 'none';
-    document.getElementById('add-new').style.display = 'flex';
-    document.getElementById('container').style.display = 'flex';
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  contactus() {
-    document.getElementById('lists').style.display = 'none';
-    document.getElementById('contactus').style.display = 'flex';
-    document.getElementById('add-new').style.display = 'none';
-    document.getElementById('container').style.display = 'none';
+  // Add event listeners to remove buttons
+  addRemoveButtonListeners() {
+    const removeButtons = document.getElementsByClassName('remove-btn');
+    for (let i = 0; i < removeButtons.length; i++) {
+      const button = removeButtons[i];
+      const bookId = button.dataset.bookId;
+      button.addEventListener('click', () => {
+        this.removeBooks(parseInt(bookId));
+      });
+    }
   }
 }
+
 
