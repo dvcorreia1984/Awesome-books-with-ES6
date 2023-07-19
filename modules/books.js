@@ -1,5 +1,4 @@
-/* eslint-disable import/prefer-default-export */
-export class Books {
+export default class Books {
   createObject() {
     this.books = [
       {
@@ -71,11 +70,9 @@ export class Books {
     const removeButtons = document.getElementsByClassName('remove-btn');
     for (let i = 0; i < removeButtons.length; i += 1) {
       const button = removeButtons[i];
-      // eslint-disable-next-line prefer-destructuring
-      const bookId = button.dataset.bookId;
+      const { bookId } = button.dataset;
       button.addEventListener('click', () => {
-        // eslint-disable-next-line radix
-        this.removeBooks(parseInt(bookId));
+        this.removeBooks(parseInt(bookId, 10));
       });
     }
   }

@@ -1,5 +1,5 @@
-import { Books } from './modules/books.js';
-import { setupNavigation } from './modules/navigation.js';
+import Books from './modules/books.js';
+import setupNavigation from './modules/navigation.js';
 import dt from './modules/datetime.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Remove button event listener
   document.addEventListener('click', (event) => {
     if (event.target.classList.contains('remove-btn')) {
-      // eslint-disable-next-line radix
-      const bookId = parseInt(event.target.dataset.bookId);
+      const bookId = parseInt(event.target.dataset.bookId, 10);
       a.removeBooks(bookId);
     }
   });
